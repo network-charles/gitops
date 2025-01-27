@@ -6,19 +6,35 @@ brew install jenkins-lts
 # Start the Jenkins service
 brew services start jenkins-lts
 
+# Modify jenkins so it can run Docker
+nano /usr/local/Cellar/jenkins-lts/2.479.3/homebrew.mxcl.jenkins-lts.plist
+
+# Add the below just above </dict></plist>. Replace /Users/mac with your mac User.
+<key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin/:/Users/mac/Library/Group\ Containers/group.com.docker/Applications/Docker.app/Contents/Resources/bin</string>
+        </dict>
+
+# Restart jenkins
+brew services restart jenkins-lts  
+
 # Visit the URL
 http://localhost:8080
 
 # Get password
 cat /Users/mac/.jenkins/secrets/initialAdminPassword
 
-# Install the suggested plugins
+# Install the suggested plugins including Docker
 
 # Create a new item
 mypipeline
 
 # Add a pipeline script and build
-./mypipeline
+This file "./mypipeline"
+
+# View your nginx container in your browser via the URL below
+localhost
 
 # Stop the Jenkins service
 brew services stop jenkins-lts
