@@ -1,0 +1,24 @@
+# Run Jenkins on macOS
+
+# Install 
+brew install jenkins-lts
+
+# Start the Jenkins service
+brew services start jenkins-lts
+
+# Visit the URL
+http://localhost:8080
+
+# Get password
+cat /Users/mac/.jenkins/secrets/initialAdminPassword
+
+# Install the suggested plugins
+
+# Create a new item
+mypipeline
+
+# Add a pipeline script and build
+./mypipeline
+
+# Stop the Jenkins service
+brew services stop jenkins-lts

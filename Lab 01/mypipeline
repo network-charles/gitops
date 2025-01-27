@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('build') {
+      steps {
+        git branch: 'master',
+          url: 'https://github.com/network-charles/gitops'
+        sh "docker build -t nginx ./Lab\ 01/dockerfile"
+      }
+    }
+    stage('test') {
+      steps {
+        sh "docker images"
+      }
+    }
+    stage('release') {
+      steps {
+        sh "docker run nginx"
+      }
+    }
+  }
+}
