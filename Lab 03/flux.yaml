@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 1m
-  url: https://github.com/network-charles/CKA
+  url: https://github.com/network-charles/gitops.git
   ref:
     branch: main
 ---
@@ -20,6 +20,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: pod
-  path: "./Lab\ 02/yaml"
+  path: "./Lab\ 03/dev"
   prune: true
   timeout: 1m
