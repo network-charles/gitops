@@ -1,9 +1,11 @@
 # Kustomization overlay
 
+Manifest are applied via the overlay kustomize file "kustomization.yaml".
+
 # Target a github repo and yaml file in a file path
-kubectl apply -f pod.yaml
-gitrepository.source.toolkit.fluxcd.io/pod created
-kustomization.kustomize.toolkit.fluxcd.io/pod created
+kubectl apply -f flux.yaml
+gitrepository.source.toolkit.fluxcd.io/flux created
+kustomization.kustomize.toolkit.fluxcd.io/flux-kustom created
 
 kubectl get pod
 NAME    READY   STATUS    RESTARTS   AGE
