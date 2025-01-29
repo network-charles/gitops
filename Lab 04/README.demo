@@ -1,9 +1,9 @@
-# Deploy a pod in a repo via flux
+# Kustomization overlay
 
 # Target a github repo and yaml file in a file path
-kubectl apply -f flux.yaml
-gitrepository.source.toolkit.fluxcd.io/flux-git created
-kustomization.kustomize.toolkit.fluxcd.io/flux-kustom created
+kubectl apply -f pod.yaml
+gitrepository.source.toolkit.fluxcd.io/pod created
+kustomization.kustomize.toolkit.fluxcd.io/pod created
 
 kubectl get pod
 NAME    READY   STATUS    RESTARTS   AGE
@@ -13,6 +13,3 @@ nginx   1/1     Running   0          26s
 kubectl get pod
 NAME      READY   STATUS    RESTARTS   AGE
 nginx-2   1/1     Running   0          6s
-
-# Clean up
-kubectl delete -f flux.yaml
