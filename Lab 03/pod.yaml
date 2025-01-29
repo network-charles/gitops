@@ -1,0 +1,25 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: pod
+  namespace: default
+spec:
+  interval: 1m
+  url: https://github.com/network-charles/CKA
+  ref:
+    branch: main
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: pod
+  namespace: default
+spec:
+  interval: 10m
+  targetNamespace: default
+  sourceRef:
+    kind: GitRepository
+    name: pod
+  path: "./Lab\ 02/yaml"
+  prune: true
+  timeout: 1m

@@ -1,0 +1,10 @@
+# Install fluxCD
+
+# Install flux CLI
+brew install fluxcd/tap/flux
+
+# Create a k8s cluster
+kind create cluster
+
+# Install flux controllers
+flux install

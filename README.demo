@@ -1,2 +1,8 @@
 # Lab 01
 Run Jenkins on macOS
+
+# Lab 02
+Install fluxCD
+
+# Lab 03
+Deploy a pod in a repo via flux
