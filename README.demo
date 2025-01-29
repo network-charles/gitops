@@ -5,4 +5,10 @@ Run Jenkins on macOS
 Install fluxCD
 
 # Lab 03
-Deploy a pod in a repo via flux
+Deploy a pod from a git repo via flux
+
+# Lab 04
+Kustomization overlay
+
+# Lab 05
+Use minio s3 bucket as source

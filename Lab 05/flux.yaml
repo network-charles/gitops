@@ -1,0 +1,37 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: Bucket
+metadata:
+  name: minio-bucket
+  namespace: minio-dev
+spec:
+  interval: 5m0s
+  endpoint: 10.244.0.5:9000   # point to the minio pod port and S3 API port
+  insecure: true
+  secretRef:
+    name: minio-bucket-secret
+  bucketName: gitops
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio-bucket-secret
+  namespace: minio-dev
+type: Opaque
+stringData:
+  accesskey: minioadmin  # new
+  secretkey: minioadmin  # new
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux-kustom
+  namespace: minio-dev
+spec:
+  interval: 10m
+  targetNamespace: default  # The namespace of all manifests in the buckets
+  sourceRef:
+    kind: Bucket
+    name: minio-bucket
+  path: ./dev
+  prune: true
+  timeout: 1m

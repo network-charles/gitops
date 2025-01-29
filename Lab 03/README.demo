@@ -1,4 +1,10 @@
-# Deploy a pod in a repo via flux
+# Deploy a pod from a git repo via flux
+
+# Create cluster 
+kind create cluster
+
+# Install flux controllers
+flux install
 
 # Target a github repo and yaml file in a file path
 kubectl apply -f flux.yaml

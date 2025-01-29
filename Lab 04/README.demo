@@ -2,6 +2,12 @@
 
 Manifest are applied via the overlay kustomize file "kustomization.yaml".
 
+# Create cluster 
+kind create cluster
+
+# Install flux controllers
+flux install
+
 # Target a github repo and yaml file in a file path
 kubectl apply -f flux.yaml
 gitrepository.source.toolkit.fluxcd.io/flux created
